@@ -1,0 +1,63 @@
+
+=================================================================
+   🔧  SELF-HEALING NETWORK PoC  |  Cisco DevNet Sandbox
+=================================================================
+[2026-03-25 23:54:37] [INFO ] Target Device    : devnetsandboxiosxec8k.cisco.com:22
+[2026-03-25 23:54:37] [INFO ] Monitored Port   : Loopback100
+[2026-03-25 23:54:37] [INFO ] Device OS Type   : cisco_xe
+
+[2026-03-25 23:54:37] [INFO ] Pre-flight: Checking SSH port 22 on devnetsandboxiosxec8k.cisco.com...
+[2026-03-25 23:54:38] [INFO ] SSH Port 22 is open. ✅
+[2026-03-25 23:54:38] [INFO ] Attempting SSH connection to devnetsandboxiosxec8k.cisco.com...
+[2026-03-25 23:54:42] [INFO ] SSH connection established! ✅
+[2026-03-25 23:54:43] [INFO ] Entered privileged EXEC mode (enable mode). ✅
+
+[2026-03-25 23:54:43] [INFO ] Current interface summary:
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       10.10.20.148    YES NVRAM  up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet3       unassigned      YES NVRAM  administratively down down    
+
+[2026-03-25 23:54:44] [INFO ] --- BOOTSTRAP: Ensuring Loopback100 exists ---
+[2026-03-25 23:54:44] [INFO ] Checking if Loopback100 exists on the device...
+[2026-03-25 23:54:45] [INFO ] Loopback100 not found — creating it now...
+[2026-03-25 23:54:51] [INFO ] Interface created. Router response:
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cat8kv_AO_Sandbox(config)#interface Loopback100
+Cat8kv_AO_Sandbox(config-if)#ip address 10.100.100.1 255.255.255.255
+Cat8kv_AO_Sandbox(config-if)#no shutdown
+Cat8kv_AO_Sandbox(config-if)#description Self-Healing PoC Demo Interface
+Cat8kv_AO_Sandbox(config-if)#end
+Cat8kv_AO_Sandbox#
+
+[2026-03-25 23:54:53] [INFO ] --- OBSERVING: Checking Loopback100 status ---
+[2026-03-25 23:54:53] [INFO ] Sending 'show interfaces Loopback100' to router...
+[2026-03-25 23:54:55] [INFO ] Parsed interface status: 'up'
+
+[2026-03-25 23:54:55] [INFO ] --- ANALYZING: Current status is 'up' ---
+[2026-03-25 23:54:55] [INFO ] Loopback100 is currently UP and healthy.
+
+[2026-03-25 23:54:55] [INFO ] --- ACTING: Staging Demo — Shutting down interface ---
+[2026-03-25 23:54:55] [INFO ] Interface is UP. Staging demo by shutting down Loopback100...
+[2026-03-25 23:54:58] [INFO ] Shutdown sent. Router response:
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cat8kv_AO_Sandbox(config)#interface Loopback100
+Cat8kv_AO_Sandbox(config-if)#shutdown
+Cat8kv_AO_Sandbox(config-if)#end
+Cat8kv_AO_Sandbox#
+
+=================================================================
+  🔴  DEMO STATE SET — Interface is now ADMINISTRATIVELY DOWN.
+
+  ▶  Run this script ONE MORE TIME to watch it SELF-HEAL!
+=================================================================
+
+
+[2026-03-25 23:54:58] [INFO ] SSH session closed cleanly. ✅
+
+=================================================================
+[2026-03-25 23:54:58] [INFO ] Script execution complete.
+=================================================================
+

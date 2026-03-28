@@ -1,0 +1,24 @@
+
+=================================================================
+   🔧 SELF-HEALING PoC (Ping Debugged)
+=================================================================
+[2026-03-25 23:27:12] [INFO ] Checking SSH connectivity to 131.226.217.182 on port 22...
+[2026-03-25 23:27:12] [INFO ] SSH Port 22 is open ✅
+[2026-03-25 23:27:12] [INFO ] SSH to 131.226.217.182...
+[2026-03-25 23:27:19] [INFO ] Connected! ✅
+[2026-03-25 23:27:19] [INFO ] Enable mode ✅
+
+Interfaces:
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       10.10.20.148    YES NVRAM  up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet3       unassigned      YES NVRAM  administratively down down    
+[2026-03-25 23:27:22] [INFO ] Sending 'show interfaces Loopback100' to router...
+[2026-03-25 23:27:24] [WARN ] Could not parse status. Raw:                                           ^
+% Invalid input detected at '^' marker.
+...
+[2026-03-25 23:27:24] [INFO ] Status: 'unknown'
+[2026-03-25 23:27:24] [WARN ] Unhandled: 'unknown'
+[2026-03-25 23:27:25] [INFO ] Disconnected ✅
+=================================================================
+

@@ -1,0 +1,53 @@
+
+=================================================================
+   🔧  SELF-HEALING NETWORK PoC  |  Cisco DevNet Sandbox
+=================================================================
+[2026-03-25 23:55:29] [INFO ] Target Device    : devnetsandboxiosxec8k.cisco.com:22
+[2026-03-25 23:55:29] [INFO ] Monitored Port   : Loopback100
+[2026-03-25 23:55:29] [INFO ] Device OS Type   : cisco_xe
+
+[2026-03-25 23:55:29] [INFO ] Pre-flight: Checking SSH port 22 on devnetsandboxiosxec8k.cisco.com...
+[2026-03-25 23:55:29] [INFO ] SSH Port 22 is open. ✅
+[2026-03-25 23:55:29] [INFO ] Attempting SSH connection to devnetsandboxiosxec8k.cisco.com...
+[2026-03-25 23:55:33] [INFO ] SSH connection established! ✅
+[2026-03-25 23:55:33] [INFO ] Entered privileged EXEC mode (enable mode). ✅
+
+[2026-03-25 23:55:33] [INFO ] Current interface summary:
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       10.10.20.148    YES NVRAM  up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet3       unassigned      YES NVRAM  administratively down down    
+Loopback100            10.100.100.1    YES manual administratively down down    
+
+[2026-03-25 23:55:35] [INFO ] --- BOOTSTRAP: Ensuring Loopback100 exists ---
+[2026-03-25 23:55:35] [INFO ] Checking if Loopback100 exists on the device...
+[2026-03-25 23:55:37] [INFO ] Loopback100 already exists on device. ✅
+
+[2026-03-25 23:55:37] [INFO ] --- OBSERVING: Checking Loopback100 status ---
+[2026-03-25 23:55:37] [INFO ] Sending 'show interfaces Loopback100' to router...
+[2026-03-25 23:55:38] [INFO ] Parsed interface status: 'administratively down'
+
+[2026-03-25 23:55:38] [INFO ] --- ANALYZING: Current status is 'administratively down' ---
+[2026-03-25 23:55:38] [ALERT] ALERT ⚠️  Loopback100 is ADMINISTRATIVELY DOWN!
+
+[2026-03-25 23:55:38] [INFO ] --- ACTING: Initiating Self-Healing Sequence ---
+[2026-03-25 23:55:38] [ALERT] SELF-HEALING TRIGGERED → Initiating repair of Loopback100...
+[2026-03-25 23:55:41] [INFO ] Configuration pushed. Router response:
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cat8kv_AO_Sandbox(config)#interface Loopback100
+Cat8kv_AO_Sandbox(config-if)#no shutdown
+Cat8kv_AO_Sandbox(config-if)#end
+Cat8kv_AO_Sandbox#
+[2026-03-25 23:55:41] [INFO ] Waiting 3s for interface convergence...
+[2026-03-25 23:55:44] [INFO ] Verifying repair — re-checking interface status...
+[2026-03-25 23:55:44] [INFO ] Sending 'show interfaces Loopback100' to router...
+[2026-03-25 23:55:46] [INFO ] Parsed interface status: 'up'
+[2026-03-25 23:55:46] [INFO ] SUCCESS! ✅ Loopback100 is now [UP]. Network is HEALED.
+
+[2026-03-25 23:55:46] [INFO ] SSH session closed cleanly. ✅
+
+=================================================================
+[2026-03-25 23:55:46] [INFO ] Script execution complete.
+=================================================================
+

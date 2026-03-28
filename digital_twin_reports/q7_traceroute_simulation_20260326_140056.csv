@@ -1,0 +1,2 @@
+Flow,Traces,TraceCount
+"start=th_router interface=GigabitEthernet1 [10.10.20.148->10.10.10.1 ICMP (type=8, code=0)]","[((RECEIVED(GigabitEthernet1), ACCEPTED(Loopback0)))]",1

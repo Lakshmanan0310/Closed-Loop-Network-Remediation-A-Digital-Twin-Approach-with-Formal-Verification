@@ -1,0 +1,7 @@
+
+=================================================================
+   🔧 SELF-HEALING PoC (Ping Debugged)
+=================================================================
+[2026-03-25 23:24:19] [INFO ] Checking SSH connectivity to 131.226.217.182 on port 22...
+[2026-03-25 23:24:24] [ERROR] Connectivity FAILED: Port 22 is closed (error code 10035)
+[2026-03-25 23:24:24] [ERROR] Fix: Check sandbox status at devnetsandbox.cisco.com
