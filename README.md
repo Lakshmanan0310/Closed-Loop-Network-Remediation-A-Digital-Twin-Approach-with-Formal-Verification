@@ -216,7 +216,6 @@ A naive approach of *appending* a second `interface Loopback100 / no shutdown` b
 
 **Lakshmanan E**
 - GitHub: [@Lakshmanan0310](https://github.com/Lakshmanan0310)
-- Developed for **IEEE Research on Network Automation & Digital Twins**
 - *Last Updated: March 2026*
 
 ---
