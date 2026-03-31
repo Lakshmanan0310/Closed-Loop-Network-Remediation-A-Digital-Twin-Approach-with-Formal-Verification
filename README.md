@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/IEEE-Research_Project-00629B?style=for-the-badge&logo=ieee&logoColor=white"/>
-
 # 🌐 Closed-Loop Network Remediation
 ### A Digital Twin Approach with Formal Verification
 
