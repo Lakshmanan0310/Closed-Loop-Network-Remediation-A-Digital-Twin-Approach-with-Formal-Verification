@@ -139,8 +139,8 @@ docker ps
 
 **1. Clone the Repository**
 ```bash
-git clone https://github.com/Lakshmanan0310/Cisco_self_healing_poc.git
-cd Cisco_self_healing_poc
+git clone https://github.com/kishore-47/Closed-Loop-Network-Remediation-A-Digital-Twin-Approach-with-Formal-Verification.git
+cd Closed-Loop-Network-Remediation-A-Digital-Twin-Approach-with-Formal-Verification
 ```
 
 **2. Install Python Dependencies**
